@@ -68,6 +68,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
+        terraform_version: 0.12.28
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
@@ -81,6 +82,7 @@ jobs:
         echo "secret_key = ${{ secrets.AWS_SECRET_KEY }}" >> secrets.tfvars
         echo "db_secret = ${{ secrets.AWS_RDS_SECRET }}" >> secrets.tfvars
         ls -la
+        terraform --version
         terraform fmt -check
 
     # Generates an execution plan for Terraform
