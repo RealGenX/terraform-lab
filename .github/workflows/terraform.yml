@@ -80,6 +80,7 @@ jobs:
         echo "access_key = ${{ secrets.AWS_ACCESS_KEY }}" > secrets.tfvars
         echo "secret_key = ${{ secrets.AWS_SECRET_KEY }}" >> secrets.tfvars
         echo "db_secret = ${{ secrets.AWS_RDS_SECRET }}" >> secrets.tfvars
+        ls -la
         terraform fmt -check
 
     # Generates an execution plan for Terraform
