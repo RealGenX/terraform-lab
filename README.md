@@ -17,4 +17,4 @@ version is `0.12.*`.
 - To delete all created resources in AWS run `terraform destroy -var-file=./secrets.tfvars`, review changes you going to apply, then confirm with `yes`.
 
 
-- New Commit
+- New Commit #1
