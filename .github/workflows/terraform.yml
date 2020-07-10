@@ -61,13 +61,6 @@ jobs:
         shell: bash
     # Checkout the repository to the GitHub Actions runner
     steps:
-    - name: Init Secrets
-      run: |
-        echo "access_key = ${{ secrets.AWS_ACCESS_KEY }}" > secrets.tfvars
-        echo "secret_key = ${{ secrets.AWS_SECRET_KEY }}" >> secrets.tfvars
-        echo "db_secret = ${{ secrets.AWS_RDS_SECRET }}" >> secrets.tfvars
-        cat secrets.tfvars
-
     - name: Checkout
       uses: actions/checkout@v2
 
@@ -83,7 +76,11 @@ jobs:
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
-      run: terraform fmt -check
+      run: |
+        echo "access_key = ${{ secrets.AWS_ACCESS_KEY }}" > secrets.tfvars
+        echo "secret_key = ${{ secrets.AWS_SECRET_KEY }}" >> secrets.tfvars
+        echo "db_secret = ${{ secrets.AWS_RDS_SECRET }}" >> secrets.tfvars
+        terraform fmt -check
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
