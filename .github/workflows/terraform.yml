@@ -36,6 +36,7 @@ jobs:
         echo "secret_key = \"${{ secrets.AWS_SECRET_KEY }}\"" >> secrets.tfvars
         terraform validate
     - name: Terraform Plan
+      env:
         AWS_ACCESS_KEY_ID: '${{ secrets.AWS_ACCESS_KEY }}'
         AWS_SECRET_ACCESS_KEY: '${{ secrets.AWS_SECRET_KEY }}'
         AWS_DEFAULT_REGION: "us-east-1"
