@@ -4,7 +4,6 @@
 ```
 access_key = "<AWS access key>"
 secret_key = "<AWS secret key>"
-db_secret = "<RDS DB password>"
 ```
 - Upload or generate new ssh Key in AWS Console. Update `valiables.tf#52` with new key name.
 - Make sure you are in folder with `tf` and `tfvars` files.
