@@ -1,3 +1,5 @@
+# Artur : testing RP from Fork
+
 # AWS terraform-lab
 
 - Create `secrets.tfvars` file that contains: 
